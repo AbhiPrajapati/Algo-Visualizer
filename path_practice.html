@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <title>HOME PAGE</title>
+
+    <style>
+      .algo {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 50px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(10, 40px);
+        grid-template-rows: repeat(10, 40px);
+        grid-row-gap: 13px;
+        grid-column-gap: 13px;
+      }
+
+      a {
+        color: #f7977a;
+      }
+      .node {
+        background-color: #8bcdcd;
+        text-align: center;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .explanation {
+        max-width: 55vh;
+      }
+
+      .tabcontent {
+        display: none;
+        border: 1px solid #ccc;
+      }
+
+      .btn_effect {
+        cursor: pointer;
+        background-color: rgb(16, 16, 63);
+        font-size: 20px;
+        padding: 10px;
+        color: #fff;
+        border-radius: 5px;
+      }
+      .btn_effect:hover {
+        background-color: white !important;
+        border: solid rgb(16, 16, 63) 3px;
+        color: rgb(16, 16, 63) !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          margin-top: 1em;
+          font-size: small;
+        }
+        button {
+          border: 4px solid white;
+          font-size: 10px;
+          text-align: center;
+        }
+        .container {
+          display: grid;
+          grid-template-columns: repeat(10, 28px);
+          grid-template-rows: repeat(10, 28px);
+          grid-row-gap: 8px;
+          grid-column-gap: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body style="overflow: hidden;" >
+    <div class="main">
+      <div class="sub-1">
+        <div class="control">
+          <h2 style="padding-left: 26%">Djikstra's Algorithm</h2>
+        </div>
+        <div class="algo">
+          <button class="start nav btn_effect" onClick="start()">Start</button>
+          <button class="refresh nav btn_effect" onClick="refresh();">
+            Refresh
+          </button>
+          <button>
+            <a href="https://www.javatpoint.com/dijkstras-algorithm">
+              prerequisite</a
+            >
+          </button>
+        </div>
+      </div>
+      <div class="sub-2">
+        <div class="visual">
+          <div class="container" style="padding-left: 20%"></div>
+        </div>
+        <div class="data">
+          <div class="data-1">
+            <p class="plain-text">Sorting Algorithm</p>
+            <a class="icon" href="index.html"
+              ><i class="fas fa-chevron-circle-right"></i
+            ></a>
+          </div>
+          <div class="data-2">
+            <p class="plain-text">Searching visualizer</p>
+            <a class="icon" href="searchh.html"
+              ><i class="fas fa-chevron-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/visualization.js"></script>
+    <script src="path.js"></script>
+  </body>
+</html>

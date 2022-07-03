@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
-    <title>Document</title>
+    <title>HOME PAGE</title>
 </head>
 <body>
     <div class="main">
@@ -21,7 +21,10 @@
                     <input id="node_speed" type="range" min=1 max=5 step=1 value=4>
                 </div>
                 <div class="control-2">
-                     <button id="node_generate" class="btn_effect">Generate New Array!</button>
+                     <button id="node_generate" class="node_create btn_effect">Generate New Array!</button>
+                     <button id="custom_node" class="node_create btn_effect">Create Custom Array</button>
+                     
+                     
                 </div>   
             </div>
             <div class="algo">
@@ -35,23 +38,29 @@
         </div>
         <div class="sub-2">
             <div class="visual">
-                <div id="array_container"> <!-- Container of nodes -->
+                <div class="popup" onclick="myFunction()">   &nbsp &nbsp  &nbsp  &nbsp &nbsp  &nbsp  &nbsp  <button class="btn" style="margin-right: 2px;">
 
+                    <span class="popuptext" id="myPopup"><img src="C:\Users\ADMIN\OneDrive\Pictures\Screenshots\comp.png"> Normally Quick is the best!!!</span>
+                  </div>
+                <!-- <h1 style="text-align: right; margin-right: 2em;">Time Complexity</h1> -->
+                <!-- <h1 style="text-align: right; margin-right: 2em;" id="timecomplex"> </h1> -->
+        
+                <div id="array_container"> <!-- Container of nodes -->
                 </div>
             </div>
             <div class="data">
-                <div class="data-1"></div>
+                <div class="data-1">
+                    <p class="plain-text">Path Find Algorithm</p>
+                   <a class="icon" href="path_practice.html"><i class="fas fa-chevron-circle-right"></i></a>
+                </div>
                 <div class="data-2">
                     <p class="plain-text" >Searching visualizer</p>
-                   <a class="icon" href="searching.html"><i class="fas fa-chevron-circle-right"></i></a>
+                   <a class="icon" href="searchh.html"><i class="fas fa-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
 
     </div>
-
-
-
 
     <script src="./js/main.js"></script>
     <script src="./js/visualization.js"></script>

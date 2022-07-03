@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <title>Search Page</title>
+
+    <style type="text/css">
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .header {
+        font-size: 35px;
+        text-align: center;
+      }
+
+      #array {
+        background-color: white;
+        height: 305px;
+        width: 598px;
+        margin: auto;
+        position: relative;
+        margin-top: 64px;
+      }
+
+      .block {
+        width: 28px;
+        background-color: #6b5b95;
+        position: absolute;
+        bottom: 0px;
+        transition: 0.2s all ease;
+      }
+
+      .block_id {
+        position: absolute;
+        color: black;
+        margin-top: -20px;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="sub-1">
+        <div class="control">
+          <div class="control-1">
+            <p>Size of the array:</p>
+            <input
+              id="node_size"
+              type="range"
+              min="20"
+              max="150"
+              step="1"
+              value="80"
+            />
+            <p>Speed of the algorithm:</p>
+            <input
+              id="node_speed"
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+              value="4"
+            />
+          </div>
+          <div class="control-2">
+            <button
+              id="node_generate"
+              class="node_create btn_effect"
+              onclick="location.reload()"
+            >
+              Generate New Array!
+            </button>
+            <!-- <button id="custom_node" class="node_create btn_effect">Create Custom Array</button> -->
+          </div>
+        </div>
+        <div class="algo">
+          <button class="btn_effect" id="btn" onclick="LinearSearch()">
+            Linear Search!!
+          </button>
+          <button class="btn_effect" id="btn" onclick="BinarySearch()">
+            Binary Search!!
+          </button>
+          <label for="fname" class="btn_effect">Number to be Searched:</label>
+          <input type="text" id="fname" name="fname" />
+        </div>
+      </div>
+      <div class="sub-2">
+        <div class="visual">
+          <h1 id="text" style="text-align: center"></h1>
+
+          <div id="array_container">
+            <!-- Container of nodes -->
+
+            <div id="array"></div>
+          </div>
+        </div>
+        <div class="data">
+          <div class="data-1">
+            <p class="plain-text">Path Find Algorithm</p>
+            <a class="icon" href="path_practice.html"
+              ><i class="fas fa-chevron-circle-right"></i
+            ></a>
+          </div>
+          <div class="data-2">
+            <p class="plain-text">Sorting Algorithm</p>
+            <a class="icon" href="index.html"
+              ><i class="fas fa-chevron-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Asynchronous LinearSearch function
+      async function LinearSearch(delay = 300) {
+        var blocks = document.querySelectorAll(".block");
+        var output = document.getElementById("text");
+
+        //Extracting the value entered by the user
+        var num = document.getElementById("fname").value;
+
+        //Changing the color of all the blocks to voilet
+        for (var i = 0; i < blocks.length; i += 1) {
+          blocks[i].style.backgroundColor = "blue";
+        }
+
+        output.innerText = "";
+
+        var flag = 0;
+        // LinearSearch Algorithum
+        for (var i = 0; i < blocks.length; i += 1) {
+          //Changing the color of current block to red
+          blocks[i].style.backgroundColor = "#FF4949";
+
+          // To wait for .1 sec
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, delay)
+          );
+
+          //Extracting the value of current block
+          var value = Number(blocks[i].childNodes[0].innerHTML);
+
+          // To compare block value with entered value
+          if (value == num) {
+            flag = 1;
+            output.innerText = "Element Found";
+            blocks[i].style.backgroundColor = "#13CE66";
+            break;
+          } else {
+            // Changing the color to the previous one
+            blocks[i].style.backgroundColor = "#6b5b95";
+          }
+        }
+        //When element is not found in the array
+        if (flag == 0) {
+          output.innerText = "Element Not Found";
+        }
+      }
+
+      // Asynchronous BinarySearch function
+      async function BinarySearch(delay = 1000) {
+        var blocks = document.querySelectorAll(".block");
+        var output = document.getElementById("text");
+
+        //Extracting the value of the element to be searched
+        var num = document.getElementById("fname").value;
+
+        //Colouring all the blocks voilet
+        for (var i = 0; i < blocks.length; i += 1) {
+          blocks[i].style.backgroundColor = "#6b5b95";
+        }
+
+        output.innerText = "";
+
+        // BinarySearch Algorithm
+
+        var start = 0;
+        var end = 19;
+        var flag = 0;
+        while (start <= end) {
+          //Midddle index
+          var mid = Math.floor((start + end) / 2);
+          blocks[mid].style.backgroundColor = "#FF4949";
+
+          //Value at mid index
+          var value = Number(blocks[mid].childNodes[0].innerHTML);
+
+          // To wait for .1 sec
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, delay)
+          );
+
+          //Current element is equal to the element
+          //entered by the user
+          if (value == num) {
+            output.innerText = "Element Found";
+            blocks[mid].style.backgroundColor = "#13CE66";
+            flag = 1;
+            break;
+          }
+          //Current element is greater than the element
+          //entered by the user
+          if (value > num) {
+            end = mid - 1;
+            blocks[mid].style.backgroundColor = "#6b5b95";
+          } else {
+            start = mid + 1;
+            blocks[mid].style.backgroundColor = "#6b5b95";
+          }
+        }
+        if (flag === 0) {
+          output.innerText = "Element Not Found";
+        }
+      }
+
+      // Calling generatearray function
+      //generatearray();
+
+      var container = document.getElementById("array");
+
+      // Function to generate the array of blocks
+      function generatearray() {
+        // Creating an array
+        var arr = [];
+
+        // Filling array with random values
+        for (var i = 0; i < 20; i++) {
+          // Return a value from 1 to 100 (both inclusive)
+          var val = Number(Math.ceil(Math.random() * 100));
+          arr.push(val);
+        }
+
+        // Sorting Array in ascending order
+        arr.sort(function (a, b) {
+          return a - b;
+        });
+
+        for (var i = 0; i < 20; i++) {
+          var value = arr[i];
+
+          // Creating element div
+          var array_ele = document.createElement("div");
+
+          // Adding class 'block' to div
+          array_ele.classList.add("block");
+
+          // Adding style to div
+          array_ele.style.height = `${value * 3}px`;
+          array_ele.style.transform = `translate(${i * 30}px)`;
+
+          // Creating label element for displaying
+          // size of particular block
+          var array_ele_label = document.createElement("label");
+          array_ele_label.classList.add("block_id");
+          array_ele_label.innerText = value;
+
+          // Appending created elements to index.html
+          array_ele.appendChild(array_ele_label);
+          container.appendChild(array_ele);
+        }
+      }
+
+      // Asynchronous BinarySearch function
+      async function BinarySearch(delay = 300) {
+        var blocks = document.querySelectorAll(".block");
+        var output = document.getElementById("text");
+
+        //Extracting the value of the element to be searched
+        var num = document.getElementById("fname").value;
+
+        //Colouring all the blocks voilet
+        for (var i = 0; i < blocks.length; i += 1) {
+          blocks[i].style.backgroundColor = "#6b5b95";
+        }
+
+        output.innerText = "";
+
+        // BinarySearch Algorithm
+
+        var start = 0;
+        var end = 19;
+        var flag = 0;
+        while (start <= end) {
+          //Middle index
+          var mid = Math.floor((start + end) / 2);
+          blocks[mid].style.backgroundColor = "#FF4949";
+
+          //Value at mid index
+          var value = Number(blocks[mid].childNodes[0].innerHTML);
+
+          // To wait for .1 sec
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, delay)
+          );
+
+          //Current element is equal to the element
+          //entered by the user
+          if (value == num) {
+            output.innerText = "Element Found";
+            blocks[mid].style.backgroundColor = "#13CE66";
+            flag = 1;
+            break;
+          }
+          //Current element is greater than the element
+          //entered by the user
+          if (value > num) {
+            end = mid - 1;
+            blocks[mid].style.backgroundColor = "#6b5b95";
+          } else {
+            start = mid + 1;
+            blocks[mid].style.backgroundColor = "#6b5b95";
+          }
+        }
+        if (flag === 0) {
+          output.innerText = "Element Not Found";
+        }
+      }
+
+      // Calling generatearray function
+      generatearray();
+    </script>
+  </body>
+</html>

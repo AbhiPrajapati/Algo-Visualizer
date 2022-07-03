@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sub-1">
+            <div class="control">
+                <div class="control-1">
+                    <p>Size of the array:</p>
+                    <input id="node_size" type="range" min=20 max=150 step=1 value=80>
+                    <p>Speed of the algorithm:</p>
+                    <input id="node_speed" type="range" min=1 max=5 step=1 value=4>
+                </div>
+                <div class="control-2">
+                     <button id="node_generate" class="btn_effect">Generate New Array!</button>
+                </div>   
+            </div>
+            <div class="algo">
+                 <button class="btn_effect">Bubble</button>
+                 <button class="btn_effect">Selection</button>
+                 <button class="btn_effect">Insertion</button>
+                 <button class="btn_effect">Merge</button>
+                 <button class="btn_effect">Quick</button>
+                 <button class="btn_effect">Heap</button>
+            </div>
+        </div>
+        <div class="sub-2">
+            <div class="visual">
+                <div id="array_container"> <!-- Container of nodes -->
+
+                </div>
+            </div>
+            <div class="data">
+                <div class="data-1"></div>
+                <div class="data-2">
+                    <p class="plain-text" >Searching visualizer</p>
+                   <a class="icon" href="searching.html"><i class="fas fa-chevron-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="./js/main.js"></script>
+    <script src="./js/visualization.js"></script>
+
+    <script src="./js/bubble_sort.js"></script>
+    <script src="./js/selection_sort.js"></script>
+    <script src="./js/insertion_sort.js"></script>
+    <script src="./js/merge_sort.js"></script>
+    <script src="./js/quick_sort.js"></script>
+    <script src="./js/heap_sort.js"></script>
+</body>
+</html>
